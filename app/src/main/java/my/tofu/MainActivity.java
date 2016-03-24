@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -22,18 +23,17 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private void incrementGreenTeamScore() {
+        TextView tvGreenTeamScore =  (TextView) findViewById(R.id.tvGreenTeamScore);
+        int score = Integer.parseInt(tvGreenTeamScore.getText().toString());
+        score++;
+        tvGreenTeamScore.setText(Integer.toString(score));
+    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    private void incrementRedTeamScore() {
+        TextView tvRedTeamScore =  (TextView) findViewById(R.id.tvRedTeamScore);
+        int score = Integer.parseInt(tvRedTeamScore.getText().toString());
+        score++;
+        tvRedTeamScore.setText(Integer.toString(score));
     }
 }
