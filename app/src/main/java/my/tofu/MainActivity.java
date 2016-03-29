@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -23,17 +24,23 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    private void incrementGreenTeamScore() {
-        TextView tvGreenTeamScore =  (TextView) findViewById(R.id.tvGreenTeamScore);
-        int score = Integer.parseInt(tvGreenTeamScore.getText().toString());
-        score++;
-        tvGreenTeamScore.setText(Integer.toString(score));
+    private void changeTeamScore(int value, String team) {
+        int score;
+        TextView tvTeamScore = null;
+        switch (team) {
+            case "red":
+                tvTeamScore = (TextView) findViewById(R.id.tvRedTeamScore);
+                break;
+            case "green":
+                tvTeamScore = (TextView) findViewById(R.id.tvGreenTeamScore);
+                break;
+            default:
+                Toast.makeText(this.getApplicationContext(), "Wrong team!", Toast.LENGTH_SHORT).show();
+                return;
+        }
+        score = Integer.parseInt(tvTeamScore.getText().toString());
+        score += value;
+        tvTeamScore.setText(Integer.toString(score));
     }
 
-    private void incrementRedTeamScore() {
-        TextView tvRedTeamScore =  (TextView) findViewById(R.id.tvRedTeamScore);
-        int score = Integer.parseInt(tvRedTeamScore.getText().toString());
-        score++;
-        tvRedTeamScore.setText(Integer.toString(score));
-    }
 }
