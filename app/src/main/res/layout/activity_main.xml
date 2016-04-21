@@ -99,7 +99,8 @@
         android:cropToPadding="false"
         android:scaleType="fitXY"
         android:src="@drawable/divider"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:rotation="180"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -108,7 +109,8 @@
         android:layout_row="4"
         android:layout_column="0"
         android:layout_rowSpan="7"
-        android:layout_gravity="start" />
+        android:layout_gravity="start"
+        android:onClick="wrongAnswer"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -117,7 +119,8 @@
         android:layout_row="4"
         android:layout_column="2"
         android:layout_rowSpan="7"
-        android:layout_gravity="end" />
+        android:layout_gravity="end"
+        android:onClick="rightAnswer"/>
 
 
     <ImageView
@@ -209,11 +212,12 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnClose"
+        android:id="@+id/btnReset"
         android:layout_row="12"
         android:layout_column="0"
         android:layout_columnSpan="3"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:onClick="resetGame"/>
 
 
 </GridLayout>
